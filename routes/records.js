@@ -3,10 +3,12 @@ var router = express.Router();
 
 const puppeteer = require('puppeteer');
 
-async function scrapeData() {
+const strToHex = require('../utils/stringTohex')
+
+async function scrapeData(id) {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
-    await page.goto('https://bases.athle.fr/asp.net/athletes.aspx?base=records&seq=50494257485150494851435650494257');
+    await page.goto(`https://bases.athle.fr/asp.net/athletes.aspx?base=records&seq=${strToHex(id)}`);
 
     const data = await page.evaluate(() => {
         const rows = Array.from(document.querySelectorAll('#divRecord tr'));
@@ -28,18 +30,14 @@ async function scrapeData() {
         }).filter(row => row !== null); // Remove any null entries
     });
 
-    console.log(data);
     await browser.close();
     return data;
 }
 
-/* GET users listing. */
-router.get('/:numeroLicence', async function (req, res, next) {
-    try {
-        // Call the scrapeData function
-        const scrapedData = await scrapeData();
 
-        // Send the scraped data as the response
+router.get('/:identifiant', async function (req, res, next) {
+    try {
+        const scrapedData = await scrapeData(req.params.identifiant);
         res.json(scrapedData);
     } catch (error) {
         console.error(error);
