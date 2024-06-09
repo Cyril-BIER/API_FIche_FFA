@@ -17,14 +17,26 @@ Pour répondre à cette problématique, le projet s'appuie sur :
 
 ## Fonctionnalités
 
-### Court Terme
+### Opérationnel
+- Récupération des records d'un athlète à partir de son identifiant dans la base de données FFA. 
 
-- **Récupération des records d'un athlète** : Permettre aux utilisateurs de récupérer facilement les records personnels d'un athlète via une simple requête API.
+### A venir
+- Enrichissement des résultats de course en y incorporant les records des athlètes.
+- Récupération intégrale de la fiche d'un athlète (Résultats, historique de performance ...)
 
-### Long Terme
+## Mise en place
+- Installation : `npm install`
+- Lancement : `node app.js`
 
-- **Accès intégral aux fiches athlètes** : Étendre les capacités de l'API pour permettre l'extraction et la consultation de toutes les informations disponibles sur une fiche d'athlète, incluant résultats de compétitions, historiques de performance etc...
+**Note :** Un conteneur Docker sera proposé plus tard.
 
+## Utilisation
+- Une fois lancé l'API est par défaut disponible sur le port 3000 http://localhost:3000
+- Le seul chemin accessible pour l'instant est `/records/{identifiant}` 
+
+**Note :** Une documentation OpenAPI sera proposé plus tard.
+
+## 
 ## Auteur
 
 - Cyril BIER
