@@ -34,7 +34,7 @@ Pour répondre à cette problématique, le projet s'appuie sur :
 - Une fois lancé l'API est par défaut disponible sur le port 3000 http://localhost:3000
 - Le seul chemin accessible pour l'instant est `/records/{identifiant}` 
 
-**Note :** Une documentation OpenAPI sera proposé plus tard.
+**Note :** Une documentation OpenAPI sera proposée plus tard.
 
 ## 
 ## Auteur
