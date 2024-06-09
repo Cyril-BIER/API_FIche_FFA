@@ -4,7 +4,7 @@ Cette API vise à faciliter l'accès aux données des athlètes français en ren
 
 ## Problématique
 
-Le site officiel des bases de l'athlétisme français, bien qu'essentiel, souffre d'une interface peu intuitive et d'un manque d'accessibilité des données pour les développeurs et les applications tierces. Ce projet entend remédier à cela en fournissant un accès RESTful aux données, commençant par les records et performances des athlètes.
+Bases Athlé, bien qu'étant un outil essentiel, souffre d'une interface peu intuitive et d'un manque d'accessibilité des données pour les développeurs et les applications tierces. Ce projet entend remédier à cela en fournissant un accès RESTful aux données, commençant par les records et performances des athlètes.
 
 ## Choix Techniques
 

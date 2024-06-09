@@ -21,4 +21,11 @@ app.use(function(err, req, res, next) {
   res.status(500).send('Internal Server Error');
 });
 
+const PORT = process.env.PORT || 3000;
+app.set('port', PORT);
+
+const server = app.listen(PORT, () => {
+  console.log(`Express server listening on port ${PORT}`);
+});
+
 module.exports = app;
