@@ -11,7 +11,11 @@ async function scrapeData(id) {
     await page.goto(`https://bases.athle.fr/asp.net/athletes.aspx?base=records&seq=${strToHex(id)}`);
 
     const data = await page.evaluate(() => {
-        const rows = Array.from(document.querySelectorAll('#divRecord tr'));
+        // Select the first table within #divRecord
+        const table = document.querySelector('#divRecord table');
+        if (!table) return []; // Return an empty array if no table is found
+        
+        const rows = Array.from(table.querySelectorAll('tr'));
         // Skip the first row if it is a header row
         return rows.slice(1).map(row => {
             const columns = row.querySelectorAll('td.innerDatas');
@@ -27,7 +31,7 @@ async function scrapeData(id) {
                 };
             }
             return null; // In case there are rows that do not match the expected structure
-        }).filter(row => row !== null); // Remove any null entries
+        }).filter(row => row !== null); // Remove any null entries (e.g., header rows)
     });
 
     await browser.close();
