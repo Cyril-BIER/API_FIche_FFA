@@ -18,10 +18,11 @@ Pour répondre à cette problématique, le projet s'appuie sur :
 ## Fonctionnalités
 
 ### Opérationnel
-- Récupération des records d'un athlète à partir de son identifiant dans la base de données FFA. 
+- Récupération des records d'un athlète à partir de son identifiant dans la base de données FFA ou de son numéro de licence. 
 
 ### A venir
 - Enrichissement des résultats de course en y incorporant les records des athlètes.
+- Optimisation du code
 - Récupération intégrale de la fiche d'un athlète (Résultats, historique de performance ...)
 
 ## Mise en place
@@ -32,7 +33,9 @@ Pour répondre à cette problématique, le projet s'appuie sur :
 
 ## Utilisation
 - Une fois lancé l'API est par défaut disponible sur le port 3000 http://localhost:3000
-- Le seul chemin accessible pour l'instant est `/records/{identifiant}` 
+- Pour l'instant il est possible de récupérer les records d'un athlète :
+    - via son identifiant BDD : `/records?id=XXXXXX`
+    - via son numéro de licence : `/records?licence=XXXXXXX` 
 
 **Note :** Une documentation OpenAPI sera proposée plus tard.
 
